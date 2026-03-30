@@ -1,11 +1,12 @@
 import express from 'express'
-import answers from '../controllers/getAnswersController.js'
-import questions from '../controllers/getQuestionsController.js'
+import getAnswers from '../controllers/getAnswersController.js'
+import getQuestions from '../controllers/getQuestionsController.js'
+import postQuestions from '../controllers/postQuestionController.js'
 
 export const router=express.Router()
-    router.get('/answers/:answersId',answers)
-    router.get('/answers',answers)
-    router.get('/questions/:questionsId',questions)
-    router.get('/questions',questions)
-    router.post('/question')
+    router.get('/answers/:answersId',getAnswers)
+    router.get('/answers',getAnswers)
+    router.get('/questions/:questionsId',getQuestions)
+    router.get('/questions',getQuestions)
+    router.post('/questions',postQuestions)
 

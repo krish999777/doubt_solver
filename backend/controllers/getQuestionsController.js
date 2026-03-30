@@ -4,10 +4,19 @@ export default async function(req,res){
         const {questionsId} =req.params
         if(questionsId){
             const resu=await pool.query(`
-                SELECT questions.id,title,body,questions.created_at,accepted_answers_id,answers.id AS answer_id,content,answers.author_name AS answer_author_name,answers.created_at AS answer_created_at FROM questions
+                SELECT 
+                questions.id,
+                title,
+                body,questions.created_at,
+                accepted_answers_id,
+                answers.id AS answer_id,
+                content,
+                answers.author_name AS answer_author_name,
+                answers.created_at AS answer_created_at 
+                FROM questions
                 LEFT JOIN answers ON question_id=questions.id
-                WHERE questions.id=${questionsId}
-                ;`)
+                WHERE questions.id=$1
+                ;`,[questionsId])
             if(resu.rows.length===0){
                 res.status(404)
                 res.json({error:"Question not found"})

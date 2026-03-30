@@ -3,7 +3,7 @@ export default async function(req,res){
     try{
         const {answersId} =req.params
         if(answersId){
-            const result=await pool.query(`SELECT content,author_name FROM answers WHERE id=${answersId}`)
+            const result=await pool.query(`SELECT content,author_name FROM answers WHERE id=$1`,[answersId])
             if(result.rows.length===0){
                 res.status(404)
                 res.json({error:"Question not found"})
