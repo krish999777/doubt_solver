@@ -1,0 +1,21 @@
+{
+  "name": "doubt_solver",
+  "version": "1.0.0",
+  "description": "api for QNA app",
+  "license": "ISC",
+  "author": "krish shah",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
