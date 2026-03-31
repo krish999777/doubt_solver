@@ -1,0 +1,35 @@
+:root {
+  /* Background */
+  --bg-main: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F3F4F6;
+
+  /* Text */
+  --text-main: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+
+  /* Primary */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: #DBEAFE;
+
+  /* Status */
+  --pending: #6B7280;
+  --started: #F59E0B;
+  --done: #10B981;
+
+  /* Danger */
+  --danger: #DC2626;
+  --danger-hover: #B91C1C;
+  
+  /* Borders */
+  --border: #E5E7EB;
+}
+.body{
+    background-color:var(--bg-main)
+}
+a{
+    text-decoration:none;
+    color:black;
+}
