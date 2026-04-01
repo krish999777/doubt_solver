@@ -31,7 +31,7 @@ export default async function(req,res){
                 body:result.body,
                 created_at:result.created_at,
                 author_name:result.author_name,
-                accepted_answer_id:result.accepted_answer_id,
+                accepted_answer_id:result.accepted_answers_id,
                 answers:result.answer_id?resu.rows.map(question=>{
                     return {
                         answer_id:question.answer_id,
