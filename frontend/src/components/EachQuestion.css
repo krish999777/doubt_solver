@@ -1,0 +1,108 @@
+/* Page */
+.each-question-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* Top button */
+.each-question-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.each-question-add-btn {
+  background: #007bff;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.each-question-add-btn:hover {
+  background: #0056b3;
+}
+
+/* Question card */
+.each-question-question {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Title */
+.each-question-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Body */
+.each-question-body {
+  font-size: 15px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Meta */
+.each-question-author-name,
+.each-question-created-at {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Answers section */
+.each-question-all-answers {
+  margin-top: 30px;
+}
+
+/* Each answer card */
+.each-question-each-answer {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+  transition: all 0.2s ease;
+}
+
+.each-question-each-answer:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Accepted answer */
+.each-question-accepted {
+  border: 2px solid #28a745;
+  background: #f0fff4;
+}
+
+/* Answer content */
+.each-question-each-answer-content {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Answer meta */
+.each-question-each-answer-author-name,
+.each-question-each-answer-created-at {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Error */
+.each-question-error {
+  text-align: center;
+  color: red;
+  margin-top: 40px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  margin-top: 40px;
+}
