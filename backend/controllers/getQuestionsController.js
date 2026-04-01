@@ -32,14 +32,14 @@ export default async function(req,res){
                 created_at:result.created_at,
                 author_name:result.author_name,
                 accepted_answer_id:result.accepted_answer_id,
-                answers:resu.rows.map(question=>{
+                answers:result.answer_id?resu.rows.map(question=>{
                     return {
                         answer_id:question.answer_id,
                         content:question.content,
                         answer_author_name:question.answer_author_name,
                         answer_created_at:question.answer_created_at
                     }
-                })
+                }):[]
             }
             res.status(200)
             res.json(final)
