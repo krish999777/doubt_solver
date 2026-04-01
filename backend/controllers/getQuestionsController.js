@@ -7,7 +7,9 @@ export default async function(req,res){
                 SELECT 
                 questions.id,
                 title,
-                body,questions.created_at,
+                body,
+                questions.author_name,
+                questions.created_at,
                 accepted_answers_id,
                 answers.id AS answer_id,
                 content,
@@ -28,6 +30,7 @@ export default async function(req,res){
                 title:result.title,
                 body:result.body,
                 created_at:result.created_at,
+                author_name:result.author_name,
                 accepted_answer_id:result.accepted_answer_id,
                 answers:resu.rows.map(question=>{
                     return {
