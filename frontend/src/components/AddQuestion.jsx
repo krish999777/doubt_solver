@@ -14,7 +14,7 @@ export default function(){
         const title=formData.get("title")
         const body=formData.get("body")
         const author_name=formData.get("author-name")
-        fetch("http://localhost:8000/questions",{
+        fetch("https://doubt-solver-vpos.onrender.com/questions",{
             method:"post",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({

@@ -10,7 +10,7 @@ export default function(){
     const {id}=useParams()
 
     function markAccepted(ansId){
-        fetch(`http://localhost:8000/answers/${ansId}/accept`,{
+        fetch(`https://doubt-solver-vpos.onrender.com/answers/${ansId}/accept`,{
             method:'POST'
         })
         .then(res=>{
@@ -29,7 +29,7 @@ export default function(){
         async function fetchData(){
 
             try{
-                const res=await fetch(`http://localhost:8000/questions/${id}`)
+                const res=await fetch(`https://doubt-solver-vpos.onrender.com/questions/${id}`)
                 if(!res.ok){
                     throw new Error('Error fetching data')
                 }

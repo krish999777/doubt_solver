@@ -7,7 +7,7 @@ export default function(){
   useEffect(()=>{
     async function getData(){
       try{
-      const res=await fetch('http://localhost:8000/questions')
+      const res=await fetch('https://doubt-solver-vpos.onrender.com/questions')
       const data=await res.json()
       setQuestions(data)
     }catch(err){
