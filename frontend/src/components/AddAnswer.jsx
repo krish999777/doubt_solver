@@ -5,10 +5,15 @@ import './AddAnswer.css'
 
 export default function(){
     const [error,setError]=useState()
+    const [loading,setLoading]=useState(false)
 
     const {id}=useParams()
     const navigate=useNavigate()
     function handleSubmit(event){
+        if(loading){
+            return
+        }
+        setLoading(true)
         setError(null)
         event.preventDefault()
         const form=event.target
@@ -35,6 +40,7 @@ export default function(){
         .catch(err=>{
             setError(err.message)
         })
+        .finally(()=>setLoading(false))
     }
     return(
         <>
@@ -44,13 +50,13 @@ export default function(){
 
                     <form onSubmit={handleSubmit} className="add-answer-form">
 
-                    <textarea name="content" className="add-answer-content" placeholder="Write your answer..." required />
+                    <textarea name="content" disabled={loading} className="add-answer-content" placeholder="Write your answer..." required />
 
-                    <input type="text" name="author-name" placeholder="Your name" required autoComplete="off"/>
+                    <input type="text" disabled={loading} name="author-name" placeholder="Your name" required autoComplete="off"/>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={loading}>{loading?'Submitting...':'Submit'}</button>
                     </form>
-
+                    {loading && <div className="loading-text">Submitting your question...</div>}
                     {error && <div className="error">{error}</div>}
                 </div>
                 </div>
