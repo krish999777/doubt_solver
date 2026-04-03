@@ -4,8 +4,13 @@ import './Questions.css'
 
 export default function(){
     const [questions,setQuestions]=useState([])
+    const [loading,setLoading]=useState(true)
   useEffect(()=>{
+    if(loading){
+      return
+    }
     async function getData(){
+      setLoading(true)
       try{
       const res=await fetch('https://doubt-solver-vpos.onrender.com/questions')
       const data=await res.json()
@@ -13,6 +18,8 @@ export default function(){
     }catch(err){
       console.error(err)
       return
+    }finally{
+      setLoading(false)
     }
     }
     getData()
@@ -42,9 +49,12 @@ export default function(){
           </Link>
         </div>
 
+        {loading?
+        <h1>Loading...</h1>
+        :
         <div className="question-all-questions">
           {questionList}
-        </div>
+        </div>}
       </div>
     </>
   )
