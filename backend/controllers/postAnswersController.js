@@ -27,7 +27,6 @@ export default async function(req,res){
             VALUES ($1,$2,$3) 
             RETURNING *
             `,[content,author_name,id])
-        console.log(result)
         res.status(201).json(result.rows)
 
     }catch(err){
