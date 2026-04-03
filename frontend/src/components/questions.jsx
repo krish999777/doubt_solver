@@ -6,9 +6,6 @@ export default function(){
     const [questions,setQuestions]=useState([])
     const [loading,setLoading]=useState(true)
   useEffect(()=>{
-    if(loading){
-      return
-    }
     async function getData(){
       setLoading(true)
       try{
