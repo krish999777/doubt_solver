@@ -121,3 +121,31 @@
   background: #007bff;
   color: white;
 }
+.accept-answer-btn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid #28a745;
+  background: white;
+  color: #28a745;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.accept-answer-btn:hover {
+  background: #28a745;
+  color: white;
+}
+
+/* Click */
+.accept-answer-btn:active {
+  transform: scale(0.95);
+}
+
+/* Disabled (future-proof) */
+.accept-answer-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

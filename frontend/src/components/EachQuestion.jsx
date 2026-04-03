@@ -5,7 +5,26 @@ import {useState,useEffect} from 'react'
 export default function(){
     const [error,setError]=useState()
     const [data,setData]=useState()
+    const [changeData,setChangeData]=useState(1)
+
     const {id}=useParams()
+
+    function markAccepted(ansId){
+        fetch(`http://localhost:8000/answers/${ansId}/accept`,{
+            method:'POST'
+        })
+        .then(res=>{
+            if (!res.ok) {
+                throw new Error("Failed to accept answer")
+            }
+        })
+        .catch(err=>{
+            setError(err.message)
+        })
+        .finally(()=>setChangeData(changeData+1))
+
+    }
+
     useEffect(()=>{
         async function fetchData(){
 
@@ -21,7 +40,7 @@ export default function(){
             }
         }
         fetchData()
-    },[id])
+    },[changeData,id])
     if(error){
         return(
             <div className="each-question-error">
@@ -54,6 +73,12 @@ export default function(){
                                 <div className="each-question-each-answer-content">{ans.content}</div>
                                 <div className="each-question-each-answer-author-name">{ans.answer_author_name}</div>
                                 <div className="each-question-each-answer-created-at">{new Date(ans.answer_created_at).toLocaleString()}</div>
+                                {
+                                    data.accepted_answer_id===ans.answer_id?
+                                    ''
+                                    :
+                                    <button className="accept-answer-btn"onClick={()=>markAccepted(ans.answer_id)}>Mark as accepted</button>
+                                }
                             </div>
                         )
                     })}
